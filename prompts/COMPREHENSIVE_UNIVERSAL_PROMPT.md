@@ -1,44 +1,120 @@
-# 🏨 COMPREHENSIVE UNIVERSAL HOSTEL FINANCIAL MODEL PROMPT
-
-> **Advanced AI-Assisted Financial Model Development Framework**  
-> Engineered for robust, SA-compliant hostel financial modelling with technical validation
+# 🎯 PRP-BASED FINANCIAL MODEL LAYER BUILDING
+## Product Requirements Prompt with Technical Lessons Learned Integration
 
 ---
 
-## 🎯 PROJECT OVERVIEW
+## 📋 PROJECT OVERVIEW
 
-**OBJECTIVE**: Create a comprehensive, investment-grade financial model for Hostel Diary using proven technical patterns, South African regulatory compliance, and robust validation frameworks.
-
-**CRITICAL SUCCESS FACTORS**:
-- ✅ Technical robustness with error recovery patterns
-- ✅ SA regulatory compliance (UIF, SDL, VAT, labour law)
-- ✅ Design consistency with enforced standards
-- ✅ Progressive calculation architecture
-- ✅ Comprehensive validation at every layer
+**Project Name:** [LAYER NAME] Financial Model Development  
+**Objective:** Build complete [Green Layer (Revenue) / Orange Layer (Operating Costs)] with 10-year projections and SA compliance  
+**Technology Stack:** Python (openpyxl) + MCP Excel Tools + SA Research Benchmarks + Lessons Learned Patterns  
+**Deliverables:** Investment-grade Excel layer with professional presentation, robust reference system, and IDC submission readiness
 
 ---
 
-## 🧠 CONTEXT & BACKGROUND
+## 🔧 CRITICAL TOOL USAGE RULES & TECHNICAL CONTEXT
+
+**TOOL SEPARATION - NON-NEGOTIABLE:**
+- 🔍 **MCP TOOLS (READ-ONLY)**: Analysis, validation, checking, reporting - NEVER modify Excel files
+- 🔧 **PYTHON TOOLS (WRITE OPERATIONS)**: Building, creating, modifying Excel sheets and formulas
+
+**MCP Usage Examples:**
+```bash
+# Analyse current state
+excel-negokaz:excel_describe_sheets(fileAbsolutePath='[WORKBOOK_PATH]')
+excel-negokaz:excel_read_sheet(sheetName='Rev_Accommodation', showFormula=true)
+
+# Validate after building
+excel-negokaz:excel_read_sheet(sheetName='Cost_Accommodation', range='A1:N50')
+```
+
+**Python Usage Examples with Lessons Learnt:**
+```python
+# Build and modify sheets using robust patterns
+import openpyxl
+from openpyxl.styles import PatternFill, Font, Alignment
+
+# LESSON: Always use exact RGB colour values
+YELLOW_FILL = PatternFill(start_color="FFFF00", end_color="FFFF00", fill_type="solid")
+CENTURY_GOTHIC = Font(name='Century Gothic', size=11)
+
+wb = openpyxl.load_workbook('[WORKBOOK_PATH]')
+ws = wb.create_sheet('Rev_Accommodation')
+
+# LESSON: Safe cell writing with merged cell handling
+def safe_cell_write(ws, cell_ref, value, fill=None, font=None):
+    """Write to cell with full error handling from lessons learnt"""
+    try:
+        cell = ws[cell_ref]
+        if cell.coordinate in ws.merged_cells:
+            return False  # Skip merged cells
+        cell.value = value
+        if fill: cell.fill = fill
+        if font: cell.font = font
+        return True
+    except Exception as e:
+        print(f"Failed to write {cell_ref}: {e}")
+        return False
+
+wb.save('[WORKBOOK_PATH]')
+```
+
+---
+
+## 📚 CONTEXT & BACKGROUND REQUIREMENTS
 
 ### Business Context
-**Hostel Diary** is a boutique hostel operation targeting the South African hospitality market. The financial model must support:
+- **Investment Scale**: R50-60M youth development & adventure training destination
+- **Capacity**: 190-bed facility across capsule pods, bunks, and family rooms  
+- **Location**: 21 hectares in UNESCO Biosphere Reserve (Hartbeespoort, South Africa)
+- **Funding Structure**: IDC 70-30 model with grant compliance requirements
+- **Success Criteria**: Investment-grade presentation suitable for development finance institution submission
 
-- **Investment decisions**: ROI analysis, funding requirements
-- **Operational planning**: Cash flow management, breakeven analysis  
-- **Regulatory compliance**: SA labour law, tax obligations, municipal requirements
-- **Stakeholder communication**: Professional presentation to investors/banks
-- **Scenario planning**: Sensitivity analysis for different market conditions
+### International Expansion Foundation
+- **Core Framework**: South African foundation model with jurisdiction adaptability
+- **Target Markets**: USA, UK, EU financial modelling standards
+- **Regulatory Modularity**: Country-specific compliance modules
+- **Currency Flexibility**: Multi-currency support architecture
+- **Legal Framework**: Adaptable to different corporate structures
 
-### Technical Context  
-This model leverages **Context Engineering** - an advanced AI development methodology that combines:
-- Proven technical patterns from lessons learned
-- Robust validation frameworks
-- Progressive Reference Protocol (PRP) architecture
-- SA-specific compliance integration
+### Technical Context - MANDATORY CONTEXT LOADING
+**READ ALL CONTEXT ENGINEERING FILES FIRST:**
+- Read `CLAUDE.md` - Tool usage rules and autonomous decision-making
+- Read `HOSTEL_DIARY_PROJECT_SPECIFICATION.md` - Business requirements
+- Read `BUILD_SEQUENCE_AND_REFERENCING_GUIDE.md` - Technical architecture
+- Read `EXCEL_DESIGN_STANDARDS.md` - Design standards enforcement
+- Read `CONTEXT_ENGINEERING_README.md` - Context engineering framework
+- Read `REFERENCE_MANAGEMENT_PROTOCOLS.md` - Reference architecture
+- Read `LESSONS_LEARNED_TECHNICAL.md` - Critical technical lessons
+
+**LOAD LAYER-SPECIFIC STRATEGY:**
+- Read `10_YEAR_REVENUE_PROJECTION_STRATEGY.md` (for Green Layer)
+- Read `ORANGE_LAYER_CONTEXT_ENGINEERING.md` (for Orange Layer)
+
+**LOAD PRP IMPLEMENTATION FRAMEWORKS:**
+- Execute `PRPs/templates/green_layer_autonomous_prp.md` (for Green Layer)
+- Execute `PRPs/templates/orange_layer_autonomous_prp.md` (for Orange Layer)
+
+**LOAD RESEARCH & TECHNICAL PATTERNS:**
+- Load `research/sa_hospitality_benchmarks.json` for SA market data
+- Load `examples/` folder patterns for building templates
+- Load existing reference mapping systems
+- **CRITICAL**: Apply lessons learnt patterns throughout
 
 ---
 
 ## 🎨 CRITICAL DESIGN STANDARDS - NON-NEGOTIABLE
+
+### ⚠️ CONTRAST IS EVERYTHING - FUNDAMENTAL DESIGN PRINCIPLE
+**CRITICAL: Contrast is one of the most important design elements. Poor contrast renders financial models unusable.**
+
+**CONTRAST REQUIREMENTS:**
+- ✅ **Dark text on light backgrounds** - Black text on white/yellow/light blue
+- ✅ **Light text on dark backgrounds** - White text on navy/dark green/dark orange
+- ✅ **Never light on light** - No yellow text on white backgrounds
+- ✅ **Never dark on dark** - No black text on navy backgrounds
+- ✅ **Colour blindness consideration** - Contrast ratios must work for colour-blind users
+- ✅ **Print compatibility** - Must be readable when printed in black and white
 
 ### ⚠️ CENTURY GOTHIC FONT ENFORCEMENT - ABSOLUTE REQUIREMENT
 **CRITICAL WARNING: Claude has a persistent, documented tendency to deviate from Century Gothic font. This deviation is STRICTLY FORBIDDEN and will result in immediate failure.**
@@ -85,21 +161,30 @@ def enforce_century_gothic_absolute(ws):
 - ⚠️ **Font validation required**: Check every cell after formatting
 - ⚠️ **Zero tolerance policy**: Any font deviation constitutes complete failure
 
-### COLOUR STANDARDS (EXACT RGB FROM LESSONS LEARNED)
+### COLOUR STANDARDS (EXACT RGB FROM LESSONS LEARNT)
 ```python
 # LESSON: Use exact RGB values to avoid colour detection issues
 COLOUR_STANDARDS = {
     'yellow_input': PatternFill(start_color="FFFF00", end_color="FFFF00", fill_type="solid"),
     'blue_calculation': PatternFill(start_color="BDD7EE", end_color="BDD7EE", fill_type="solid"),
     'green_output': PatternFill(start_color="C6E0B4", end_color="C6E0B4", fill_type="solid"),
-    'orange_costs': PatternFill(start_color="FFA500", end_color="FFA500", fill_type="solid"),
-    'navy_summary': PatternFill(start_color="002060", end_color="002060", fill_type="solid"),
-    'white_base': PatternFill(start_color="FFFFFF", end_color="FFFFFF", fill_type="solid")
+    'grey_header': PatternFill(start_color="D9D9D9", end_color="D9D9D9", fill_type="solid"),
+    'green_layer': PatternFill(start_color="70AD47", end_color="70AD47", fill_type="solid"),
+    'orange_layer': PatternFill(start_color="FF8C00", end_color="FF8C00", fill_type="solid"),
+    'navy_summary': PatternFill(start_color="002060", end_color="002060", fill_type="solid")
+}
+
+# CRITICAL: Text colour for contrast compliance
+TEXT_COLOUR_STANDARDS = {
+    'black_on_light': Font(name='Century Gothic', size=11, color="000000"),  # Black on yellow/blue/green
+    'white_on_dark': Font(name='Century Gothic', size=11, color="FFFFFF"),   # White on navy/dark colours
+    'black_header': Font(name='Century Gothic', size=12, bold=True, color="000000"),
+    'white_header': Font(name='Century Gothic', size=12, bold=True, color="FFFFFF")
 }
 ```
 
-### SOUTH AFRICAN ENGLISH REQUIREMENTS
-**MANDATORY SPELLING STANDARDS:**
+### SA English Spelling Standards
+**MANDATORY SPELLING REQUIREMENTS:**
 - ✅ **Colour** (not color)
 - ✅ **Centre** (not center)  
 - ✅ **Realise** (not realize)
@@ -110,194 +195,126 @@ COLOUR_STANDARDS = {
 - ✅ **Favour** (not favor)
 - ✅ **Honour** (not honor)
 - ✅ **Labour** (not labor)
+- ✅ **Licence** (noun, not license)
+- ✅ **Practice** (noun) vs **Practise** (verb)
 
 ---
 
-## 🏗️ TECHNICAL ARCHITECTURE (FROM LESSONS LEARNED)
+## 🟠 ORANGE LAYER CONTEXT ENGINEERING INTEGRATION
 
-### THREE-LAYER VALIDATION FRAMEWORK
+### Cost Layer Development with Contrast Excellence
 ```python
-# LESSON: Build error recovery, not just error detection
-# Layer 1: Python Creates (with safe patterns)
-# Layer 2: MCP Validates (comprehensive checking)  
-# Layer 3: Python Fixes (auto-recovery)
-
-def three_layer_validation():
-    """Implement robust validation with auto-recovery"""
-    try:
-        # Layer 1: Create with safe patterns
-        result = create_with_safe_patterns()
-        
-        # Layer 2: Comprehensive validation
-        validation_result = mcp_validate_comprehensive(result)
-        
-        if not validation_result.passed:
-            # Layer 3: Auto-recovery
-            fixed_result = python_auto_fix(result, validation_result.errors)
-            return fixed_result
-            
-        return result
-    except Exception as e:
-        return handle_critical_failure(e)
-```
-
-### PROGRESSIVE CALCULATION PATTERN
-```python
-# LESSON: Build dependencies in stages to prevent cascade failures
-# Stage 1: Base values from assumptions (validate sources exist)
-# Stage 2: Monthly calculations (depends on Stage 1)
-# Stage 3: Annual totals (depends on Stage 2)  
-# Stage 4: Projections (depends on Stage 3)
-
-def progressive_calculation_pattern():
-    """Implement staged calculations with dependency validation"""
+def build_orange_layer_with_contrast(wb):
+    """Build Orange Layer with proper contrast standards"""
     
-    # Stage 1: Validate base assumptions exist
-    base_assumptions = validate_base_assumptions()
-    if not base_assumptions.valid:
-        raise ValueError(f"Base assumptions missing: {base_assumptions.missing}")
-    
-    # Stage 2: Monthly calculations
-    monthly_calcs = calculate_monthly_values(base_assumptions)
-    validate_monthly_calculations(monthly_calcs)
-    
-    # Stage 3: Annual aggregation  
-    annual_totals = aggregate_to_annual(monthly_calcs)
-    validate_annual_totals(annual_totals)
-    
-    # Stage 4: Multi-year projections
-    projections = create_projections(annual_totals)
-    validate_projections(projections)
-    
-    return {
-        'base': base_assumptions,
-        'monthly': monthly_calcs,
-        'annual': annual_totals,
-        'projections': projections
+    # Orange Layer colour scheme with contrast validation
+    orange_colours = {
+        'orange_dark': PatternFill(start_color="CC6600", end_color="CC6600", fill_type="solid"),
+        'orange_medium': PatternFill(start_color="FF8C00", end_color="FF8C00", fill_type="solid"),
+        'orange_light': PatternFill(start_color="FFB366", end_color="FFB366", fill_type="solid")
     }
-```
-
----
-
-## 🇿🇦 SOUTH AFRICAN COMPLIANCE FRAMEWORK
-
-### LABOUR LAW COMPLIANCE
-```python
-# MANDATORY: SA labour law compliance patterns
-SA_LABOUR_STANDARDS = {
-    'minimum_wage_2024': 23.19,  # R23.19 per hour
-    'overtime_rate': 1.5,        # 1.5x normal rate
-    'annual_leave_days': 21,     # 21 working days minimum
-    'sick_leave_days': 30,       # 30 days per 3-year cycle
-    'maternity_leave_days': 120, # 4 months maternity leave
-    'uif_rate': 0.02,           # 2% (1% employer + 1% employee)
-    'sdl_rate': 0.01,           # 1% Skills Development Levy
-    'maximum_working_hours': 45  # 45 hours per week
-}
-
-def apply_sa_labour_compliance(salary_data):
-    """Apply SA labour law compliance to salary calculations"""
-    for employee in salary_data:
-        # Minimum wage enforcement
-        hourly_rate = employee['monthly_salary'] / (4.33 * SA_LABOUR_STANDARDS['maximum_working_hours'])
-        if hourly_rate < SA_LABOUR_STANDARDS['minimum_wage_2024']:
-            raise ValueError(f"Salary below minimum wage: {employee['name']}")
-        
-        # Calculate UIF contributions
-        employee['uif_employee'] = min(employee['monthly_salary'] * 0.01, 148.26)  # Monthly ceiling
-        employee['uif_employer'] = employee['uif_employee']  # Employer matches
-        
-        # Calculate SDL
-        employee['sdl'] = employee['monthly_salary'] * SA_LABOUR_STANDARDS['sdl_rate']
-        
-        # Add leave provisions
-        employee['leave_provision'] = employee['monthly_salary'] * (21/251)  # 21 days per working year
     
-    return salary_data
-```
-
----
-
-## 🟠 COST LAYER DEVELOPMENT (ORANGE LAYER)
-
-### COST CATEGORY STRUCTURE
-```python
-COST_CATEGORIES = {
-    'labour': {
-        'colour': COLOUR_STANDARDS['orange_costs'],
-        'subcategories': ['management', 'operations', 'housekeeping', 'security'],
-        'sa_compliance': ['minimum_wage', 'uif', 'sdl', 'leave_provision']
-    },
-    'utilities': {
-        'colour': COLOUR_STANDARDS['orange_costs'],
-        'subcategories': ['electricity', 'water', 'gas', 'telecommunications'],
-        'sa_specific': ['eskom_tariffs', 'municipal_rates', 'water_restrictions']
-    },
-    'supplies': {
-        'colour': COLOUR_STANDARDS['orange_costs'],
-        'subcategories': ['consumables', 'linen', 'cleaning', 'maintenance'],
-        'calculation_method': 'per_occupied_room_night'
-    },
-    'compliance': {
-        'colour': COLOUR_STANDARDS['orange_costs'],
-        'subcategories': ['licences', 'permits', 'insurance', 'professional_fees'],
-        'sa_specific': ['tourism_licence', 'fire_certificate', 'health_permit']
+    # Text colours for proper contrast
+    contrast_text = {
+        'white_on_dark_orange': Font(name='Century Gothic', size=11, color="FFFFFF"),
+        'black_on_light_orange': Font(name='Century Gothic', size=11, color="000000"),
+        'white_header_orange': Font(name='Century Gothic', size=12, bold=True, color="FFFFFF")
     }
-}
-```
-
-### GIT WORKFLOW FOR COST LAYER
-```bash
-# Cost layer specific git workflow
-git checkout -b feature/cost-layer-foundation
-
-# Progressive cost development commits
-git commit -m "cost(foundation): establish orange cost layer architecture
-
-- Orange colour scheme (#FFA500) implementation
-- Progressive calculation framework
-- SA tax compliance foundation  
-- Reference architecture for cost dependencies"
-
-git commit -m "cost(labour): implement SA minimum wage compliance
-
-- Base rate: R23.19/hour (2024 minimum wage)
-- UIF: 2% (1% employer + 1% employee)
-- SDL: 1% of gross wages
-- Validation: prevents below-minimum wage entries
-- Impact: ensures full labour law compliance
-
-Refs: Labour Relations Act compliance"
-
-git commit -m "cost(utilities): add Eskom tariff structure
-
-- Residential tariff: R1.85/kWh
-- Business tariff: R2.15/kWh  
-- Demand charges: R150/kVA
-- Municipal rates: 15% markup
-- Impact: accurate utility cost projections
-
-Source: Eskom 2024 tariff schedule"
+    
+    # Build cost sheets with SA compliance
+    cost_sheets = [
+        'Cost_Accommodation',
+        'Cost_Restaurant', 
+        'Cost_Adventure_Activities',
+        'Cost_Training_Programs',
+        'Cost_Ancillary'
+    ]
+    
+    for sheet_name in cost_sheets:
+        build_cost_sheet_with_contrast(wb, sheet_name, orange_colours, contrast_text)
 ```
 
 ---
 
-## 🚀 EXECUTION COMMAND
+## 🇿🇦 SA COMPLIANCE WITH ROBUST ERROR HANDLING
 
-**EXECUTE THIS COMPREHENSIVE FRAMEWORK NOW**
-
-Using the technical patterns, SA compliance requirements, and validation frameworks specified above:
-
-1. **Implement Phase 1**: Load context with validation
-2. **Implement Phase 2**: Establish design foundation with Century Gothic enforcement
-3. **Implement Phase 3**: Build sheets progressively with orange cost layer
-4. **Implement Phase 4**: Integrate with comprehensive validation
-5. **Implement Phase 5**: Final quality assurance and delivery
-
-**SUCCESS CRITERIA**: Delivery of investment-grade hostel financial model with complete SA compliance, technical robustness, and professional design standards.
-
-**FAILURE CONDITIONS**: Any deviation from Century Gothic font, colour standards, SA compliance requirements, or technical validation patterns constitutes immediate failure.
+### Automatic SA Market Pattern Integration (Lessons Learnt Enhanced)
+```python
+def apply_sa_compliance_robust(wb, sheet_name):
+    """Apply SA compliance with error handling from lessons learnt"""
+    
+    ws = wb[sheet_name]
+    
+    # LESSON: Check all prerequisite values exist
+    sa_rates = {
+        'minimum_wage': 23.19,  # R per hour
+        'uif_rate': 0.02,       # 2% total
+        'sdl_rate': 0.01,       # 1% for payrolls over R500k
+        'vat_rate': 0.15        # 15%
+    }
+    
+    # Apply minimum wage calculations with proper contrast
+    if 'staff' in sheet_name.lower():
+        for row in range(10, 30):  # Staff cost rows
+            cell_ref = f'C{row}'
+            if ws[cell_ref].value and isinstance(ws[cell_ref].value, (int, float)):
+                # Ensure minimum wage compliance
+                hourly_rate = ws[cell_ref].value / 160  # Monthly to hourly
+                if hourly_rate < sa_rates['minimum_wage']:
+                    corrected_monthly = sa_rates['minimum_wage'] * 160
+                    safe_cell_write(ws, cell_ref, corrected_monthly)
+                    # Ensure proper contrast on updated cells
+                    ws[cell_ref].font = TEXT_COLOUR_STANDARDS['black_on_light']
+```
 
 ---
 
-*This prompt represents the culmination of Context Engineering methodology - a battle-tested framework for AI-assisted financial model development.*
+## 🚀 EXECUTION COMMAND WITH SA SPELLING & CONTRAST
+
+**WORKBOOK PATH:** 
+`/Users/mac/Downloads/Hostel Diary Financial Model/Hostel_Diary_Financial_Model_V2_HEADERS_FIXED_20250718_200820.xlsx`
+
+**ROBUST PRP EXECUTION SEQUENCE:**
+
+1. **Phase 1 - Context Loading & Validation**
+   - Load PRP framework and lessons learnt patterns
+   - Validate workbook prerequisites and existing state
+   - Initialise robust error handling and logging
+
+2. **Phase 2 - Design Foundation & Contrast Architecture**
+   - Create layer reference infrastructure
+   - Apply exact design standards (Century Gothic, RGB colours, CONTRAST)
+   - Set up progressive calculation framework
+
+3. **Phase 3 - Progressive Sheet Building**
+   - Build each sheet using lessons learnt patterns
+   - Apply SA compliance with error handling
+   - MCP validation after each component
+   - **CRITICAL**: Enforce contrast standards on every cell
+
+4. **Phase 4 - Integration & Error Recovery**
+   - Create cross-layer linkages with validation
+   - Auto-fix common issues from lessons learnt
+   - Update master reference architecture
+
+5. **Phase 5 - Quality Assurance & Completion**
+   - Comprehensive validation against all standards
+   - Generate completion report with metrics
+   - Save with backup and documentation
+
+**CRITICAL SUCCESS FACTORS FROM LESSONS LEARNT:**
+- ⚠️ **Century Gothic enforcement** - Zero tolerance for font deviation
+- ⚠️ **Contrast excellence** - Readable in all lighting conditions and colour-blind friendly
+- ⚠️ **SA English spelling** - Colour, centre, realise, analyse throughout
+- 🔗 **Reference integrity** - Every reference documented and validated
+- 🇿🇦 **SA compliance automation** - Built-in regulatory compliance
+- 📊 **Progressive building** - Stage-by-stage dependency management
+- ✅ **Three-layer validation** - Python builds, MCP validates, Python fixes
+
+**EXECUTE:** Following the complete PRP methodology enhanced with technical lessons learnt, build the [LAYER NAME] with investment-grade quality, robust error handling, contrast excellence, and comprehensive SA market compliance using proper South African English spelling throughout.
+
+**EXPECTED OUTCOME:** Professional financial model layer built using proven patterns, with zero technical debt, complete reference documentation, excellent contrast for usability, and investment committee presentation readiness with full SA compliance.
+
+---
+
+*This PRP-based prompt integrates comprehensive technical lessons learnt from actual model development, ensuring robust, professional, and error-free financial model construction with SA compliance, contrast excellence, and investment-grade presentation standards using proper South African English spelling.*
