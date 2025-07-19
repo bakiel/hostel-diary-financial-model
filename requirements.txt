@@ -1,0 +1,37 @@
+# Hostel Diary Financial Model Requirements
+
+# Excel manipulation
+openpyxl>=3.1.0
+
+# Data analysis
+pandas>=1.5.0
+numpy>=1.24.0
+
+# Validation and compliance
+typing-extensions>=4.0.0
+dataclasses-json>=0.5.0
+
+# Date handling
+python-dateutil>=2.8.0
+
+# Git integration
+GitPython>=3.1.0
+
+# Configuration management
+pyyaml>=6.0
+toml>=0.10.0
+
+# Development tools
+black>=22.0.0
+flake8>=5.0.0
+mypy>=1.0.0
+pytest>=7.0.0
+
+# Documentation
+markdown>=3.4.0
+mkdocs>=1.4.0
+
+# Utilities
+click>=8.1.0
+rich>=13.0.0
+tqdm>=4.64.0
